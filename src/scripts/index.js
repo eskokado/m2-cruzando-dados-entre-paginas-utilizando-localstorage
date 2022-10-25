@@ -69,3 +69,26 @@ const goToHomePage = () => {
   });
 };
 goToHomePage();
+
+// const listCategories = document.querySelectorAll(".header ul li")
+// listCategories.forEach((category) => {
+//   category.addEventListener("click", (event) => {
+
+//     console.log(event.path[0].innerText)
+//   })
+// })
+
+const filterCategoryProducts = () =>  {
+  const ulCategories = document.querySelector(".header ul")
+  ulCategories.addEventListener("click", (event) => {
+    const category = event.path[0].innerText
+    const productsByCategory = data.filter((product) => 
+      product.name.toLowerCase().includes(category.toLowerCase()) ||
+      product.description.toLowerCase().includes(category.toLowerCase() 
+    ))
+    root.innerHTML = ""
+    renderAllProducts(productsByCategory)
+  })
+}
+
+filterCategoryProducts()
