@@ -19,3 +19,43 @@ const renderAllProducts = (products) => {
   });
 };
 renderAllProducts(data);
+
+const getCurrentProduct = () => {
+  const products = document.querySelectorAll('.product');
+
+  products.forEach((product) =>
+    product.addEventListener('click', () => {
+      const id = +product.getAttribute('data-product');
+      findProduct(id);
+    }),
+  );
+};
+getCurrentProduct();
+
+const findProduct = (id) => {
+  const currentProduct = data.find((elem) => elem.id === id);
+  localStorage.setItem('product', JSON.stringify(currentProduct));
+  renderProduct();
+};
+
+const renderProduct = () => {
+  const product = JSON.parse(localStorage.getItem('product'));
+  root.innerHTML = '';
+
+  root.insertAdjacentHTML(
+    'beforeend',
+    `
+    <div class="currentProduct">
+      <div>
+        <img src="${product.image}">
+      </div>
+      <div class="currentProduct__info">
+        <h2>${product.name}</h2>
+        <p>R$ ${product.price}</p>
+        <p>${product.description}</p>
+        <button class="btn" type="button">Comprar</button>
+      </div>
+    </div>
+  `,
+  );
+};

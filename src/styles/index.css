@@ -66,3 +66,32 @@ img {
 .main .product:hover {
   scale: 1.1;
 }
+.currentProduct {
+  display: flex;
+  gap: 40px;
+}
+
+.currentProduct__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.currentProduct__info p {
+  max-width: 50ch;
+}
+
+.btn {
+  cursor: pointer;
+  max-width: 150px;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #e2e1e1;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  filter: brightness(0.8);
+}
