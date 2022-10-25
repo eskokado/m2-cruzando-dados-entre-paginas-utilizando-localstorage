@@ -59,3 +59,13 @@ const renderProduct = () => {
   `,
   );
 };
+
+const goToHomePage = () => {
+  const logo = document.querySelector('.logo');
+  logo.addEventListener('click', () => {
+    root.innerHTML = '';
+    renderAllProducts(data);
+    getCurrentProduct();
+  });
+};
+goToHomePage();
